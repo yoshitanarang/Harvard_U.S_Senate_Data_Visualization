@@ -162,7 +162,7 @@ barplot(as.integer(votes_counter), as.integer(yearly_votes),
 legend("topleft", legend = c("Less than Average", "More than Average"))
 ```
 
-<img src="yoshita_narang_hw_2_files/figure-gfm/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="Senate_Data_Visualization_files/figure-gfm/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
 
 ``` r
 # (f)
@@ -193,7 +193,7 @@ barplot(as.integer(sum_votes), main = "Total Number of Texas Voters by Year",
         col = 2, ylab = "Votes", xlab = "Years")
 ```
 
-<img src="yoshita_narang_hw_2_files/figure-gfm/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="Senate_Data_Visualization_files/figure-gfm/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
 ``` r
 # Create Vector to normalize total # of votes per year, by dividing by the population 
@@ -208,4 +208,4 @@ barplot(divided_votes, main = "Normalized Number of Texas Voters by Year",
         ylab = "Votes", xlab = "Years", col = 2)
 ```
 
-<img src="yoshita_narang_hw_2_files/figure-gfm/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+<img src="Senate_Data_Visualization_files/figure-gfm/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
