@@ -1,21 +1,26 @@
 ---
-title: "Homework 2"
+title: "U.S. Senate 1976-2020 Harvard Dataverse Snapshot"
 author: "Yoshita Narang"
 date: "2022-09-27"
 output:
-  github_document: default 
   html_document: default
+  github_document: default 
   pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.align = 'center')
 ```
+## Introduction
 
-# Problem 1
+In this project, I will perform an exploratory analysis on data provided by 
+MIT Election Data & Science Lab (Massachusetts Institute of Technology) 
+(MEDSL), curated by the Harvard Dataverse. This data file contains constituency (state-level) returns for elections to the U.S. Senate from 1976 to 2020. My primary focus is to implement efficient Data Visualization procedures that ensure effective presentation of data to non-technical audiences without confusion. In doing so, I will compare election rates between candidates of different parties to better interpret the data, and create visual elements that provide an accessible way to see and understand election trends. 
+
+## Data Collection & Wrangling 
+Here, each state provides different information. Even where the information is the same, the column names and formats are sometimes different. To make things as simple as possible when we get to the actual exploration, we should trim and clean the data. Cleaning the data makes sure that the data formats across the cities are consistent, while trimming focuses only on the parts of the data we are most interested in to make the exploration easier to work with.
 
 ```{r}
-# (a)
 # Set working directory to where the file is located 
 setwd("~/Library/CloudStorage/Box-Box/dataverse_files")
 library(readr)
@@ -28,8 +33,10 @@ senate_data$state <- as.factor(senate_data$state)
 senate_data$party_simplified <- as.factor(senate_data$party_simplified)
 ```
 
+## Subsetting Data 
+Here, I will focus on sub-setting the data for the state of Texas. My primary focus is denoting common trends between Republican and Democractic candidates within those specified borders in the years given (1976-2020. he code below performs basic data manipulations using main R code
+
 ```{r}
-# (b)
 ## Subset dataset by extracting the data for only Texas
 ## Keep columns: year, state, candidatevotes, totalvotes, and party simplified.
 texas_subset <- senate_data[senate_data$state == "TEXAS", c(1:2, 15:16, 19)]
