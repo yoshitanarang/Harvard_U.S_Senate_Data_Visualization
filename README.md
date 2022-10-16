@@ -1,15 +1,30 @@
-# STAT 335 Data Analysis HW 2: U.S. Senate 1976–2020
-## Curated from: Harvard Dataverse
-### Yoshita Narang, 2022-09-27
----
+Homework 2
+================
+Yoshita Narang
+2022-09-27
+
 # Problem 1
-```{r}
+
+``` r
 # (a)
 # Set working directory to where the file is located 
 setwd("~/Library/CloudStorage/Box-Box/dataverse_files")
 library(readr)
 # Read the data in its original format (.csv) by using the function read.csv()
 senate_data <- read_csv("1976-2020-senate.csv")
+```
+
+    ## Rows: 3629 Columns: 19
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr (9): state, state_po, office, district, stage, candidate, party_detailed...
+    ## dbl (7): year, state_fips, state_cen, state_ic, candidatevotes, totalvotes, ...
+    ## lgl (3): special, writein, unofficial
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+``` r
 # Turn the variables: year, state, and party simplified into factor variable
 # Implement as.factor(), an R function that converts a column from numeric to factor
 senate_data$year <- as.factor(senate_data$year)
@@ -17,14 +32,14 @@ senate_data$state <- as.factor(senate_data$state)
 senate_data$party_simplified <- as.factor(senate_data$party_simplified)
 ```
 
-```{r}
+``` r
 # (b)
 ## Subset dataset by extracting the data for only Texas
 ## Keep columns: year, state, candidatevotes, totalvotes, and party simplified.
 texas_subset <- senate_data[senate_data$state == "TEXAS", c(1:2, 15:16, 19)]
 ```
 
-```{r}
+``` r
 # (c)
 # Calculate the average # of votes for each party, using the lapply function
 mean_votes <- lapply(texas_subset[which(texas_subset$party_simplified == 
@@ -37,7 +52,7 @@ mean_votes <- lapply(texas_subset[which(texas_subset$party_simplified ==
 "OTHER"), "candidatevotes"], mean) # [1] 21533
 ```
 
-```{r}
+``` r
 # Calculate the median number of votes for each party, using the lapply function
 median_votes <- lapply(texas_subset[which(texas_subset$party_simplified == 
 "DEMOCRAT"), "candidatevotes"], median) # [1] 2112490
@@ -49,7 +64,7 @@ median_votes <- lapply(texas_subset[which(texas_subset$party_simplified ==
 "OTHER"), "candidatevotes"], median) # [1] 4564
 ```
 
-```{r}
+``` r
 # (d)
 # Create function to identify the years in which a Texas democratic candidate won
 years_won <- vector()
@@ -85,7 +100,9 @@ democratic_years_won <- function() {
 print(democratic_years_won()) # [1] "1976" "1982" "1988"
 ```
 
-```{r}
+    ## [1] "1976" "1982" "1988"
+
+``` r
 # (e)
 # Create a barplot that shows the # of votes for republican by year, then compute 
 # its average over years. 
@@ -118,7 +135,9 @@ barplot(as.integer(votes_counter), as.integer(yearly_votes),
 legend("topleft", legend = c("Less than Average", "More than Average"))
 ```
 
-```{r}
+<img src="yoshita_narang_hw_2_files/figure-gfm/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+
+``` r
 # (f)
 # Create 2 vectors, voting_yrs and sum_votes 
 voting_yrs <- vector()
@@ -147,7 +166,9 @@ barplot(as.integer(sum_votes), main = "Total Number of Texas Voters by Year",
         col = 2, ylab = "Votes", xlab = "Years")
 ```
 
-```{r}
+<img src="yoshita_narang_hw_2_files/figure-gfm/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+
+``` r
 # Create Vector to normalize total # of votes per year, by dividing by the population 
 # of Texas for the given year
 divided_votes <- vector()
@@ -159,3 +180,5 @@ for (i in 1:length(sum_votes)) { divided_votes <- append(divided_votes,
 barplot(divided_votes, main = "Normalized Number of Texas Voters by Year", 
         ylab = "Votes", xlab = "Years", col = 2)
 ```
+
+<img src="yoshita_narang_hw_2_files/figure-gfm/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
