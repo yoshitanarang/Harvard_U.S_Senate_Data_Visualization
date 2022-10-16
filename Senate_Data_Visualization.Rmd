@@ -3,8 +3,8 @@ title: "U.S. Senate 1976-2020 Harvard Dataverse Snapshot"
 author: "Yoshita Narang"
 date: "2022-09-27"
 output:
-  github_document: default 
   html_document: default
+  github_document: default 
   pdf_document: default
 ---
 
