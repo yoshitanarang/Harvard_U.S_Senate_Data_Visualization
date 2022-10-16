@@ -1,7 +1,8 @@
-# STAT 335 Data Analysis HW 2: U.S. Senate 1976–2020
-## Curated from: Harvard Dataverse
-### Yoshita Narang, 2022-09-27
----
+Homework 2
+================
+Yoshita Narang
+2022-09-27
+
 # Problem 1
 
 ``` r
