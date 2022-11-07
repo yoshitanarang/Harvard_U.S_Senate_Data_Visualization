@@ -22,7 +22,7 @@ Here, each state provides different information. Even where the information is t
 
 ```{r}
 # Set working directory to where the file is located 
-setwd("~/Library/CloudStorage/Box-Box/dataverse_files")
+setwd("~/Library/CloudStorage/Box-Box/FALL 22/STAT 3355/Harvard_U.S_Senate_Data_Visualization/dataverse_files")
 library(readr)
 # Read the data in its original format (.csv) by using the function read.csv()
 senate_data <- read_csv("1976-2020-senate.csv")
